@@ -46,6 +46,19 @@ def list_flatten(lists:List[List[Any]])->List[Any]:
     return stack
 
 
+def current_time(only_time:bool=True)->str:
+    """현재 시간(날짜)를 반환한다.
+
+    Args:
+        only_time (bool, optional): 시간만 반환할지 여부(False인 경우, 날짜와 함께 반환). Defaults to True.
+
+    Returns:
+        str: 현재 시간의 문자열
+    """
+    format = "%H:%M:%S" if only_time else "%Y.%m.%d %H:%M:%S"
+    return datetime.datetime.today().strftime(format)
+
+
 def time_checker(start:float) -> str:
     """start(float: time.time())부터 time_checker() 코드 실행까지 걸린 시간을 깔끔하게 출력
     Example: '0:01:55.60'
